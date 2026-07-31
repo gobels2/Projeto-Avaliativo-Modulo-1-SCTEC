@@ -39,7 +39,7 @@ contratações.
 O esquema HR descreve uma empresa através de sete tabelas. Seis são usadas aqui:
 
 | Tabela | O que guarda | Papel na análise |
-
+|---|---|---|
 | `EMPLOYEES` | 107 funcionários: nome, salário, comissão, data de admissão, cargo, gestor e departamento | Tabela central — toda consulta parte dela |
 | `DEPARTMENTS` | 27 setores e o local onde funcionam | Dá o nome do setor e a ponte para a geografia |
 | `JOBS` | 19 cargos com **faixa salarial** (`MIN_SALARY` e `MAX_SALARY`) | Permite comparar o salário com a banda do cargo |
