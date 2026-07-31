@@ -33,14 +33,13 @@ Este projeto responde a três perguntas:
 A terceira pergunta é a que sustenta a recomendação final sobre novas
 contratações.
 
----
 
 ## 2. As tabelas usadas
 
 O esquema HR descreve uma empresa através de sete tabelas. Seis são usadas aqui:
 
 | Tabela | O que guarda | Papel na análise |
-|---|---|---|
+
 | `EMPLOYEES` | 107 funcionários: nome, salário, comissão, data de admissão, cargo, gestor e departamento | Tabela central — toda consulta parte dela |
 | `DEPARTMENTS` | 27 setores e o local onde funcionam | Dá o nome do setor e a ponte para a geografia |
 | `JOBS` | 19 cargos com **faixa salarial** (`MIN_SALARY` e `MAX_SALARY`) | Permite comparar o salário com a banda do cargo |
@@ -56,13 +55,11 @@ localização dele vem do departamento onde trabalha, através da cadeia
 `EMPLOYEES → DEPARTMENTS → LOCATIONS → COUNTRIES → REGIONS`. Quem não tem
 departamento, não tem geografia.
 
----
 
 ## 3. As duas consultas SQL
 
-As duas consultas foram escritas e executadas no **[SQL Worksheet]** do FreeSQL,
-que roda **Oracle Database 26ai**. Duas particularidades do dialeto Oracle
-afetaram a escrita:
+As duas consultas foram escritas e executadas no **[SQL Worksheet]** do FreeSQL. 
+Duas particularidades do dialeto Oracle afetaram a escrita:
 
 - **Concatenação usa `||`.** O `CONCAT` do Oracle aceita apenas dois argumentos,
   então `CONCAT(FIRST_NAME, ' ', LAST_NAME)` não funciona — daí
@@ -70,14 +67,14 @@ afetaram a escrita:
 - **`TO_CHAR(HIRE_DATE, 'YYYY-MM-DD')`** força a data para o formato ISO. Sem
   isso o CSV sairia como `07-JUN-12`, que o pandas não interpreta direto.
 
-### Query 1 — Salário por departamento e cargo (`sql/query_01.sql`)
+### Query 1 — Salário por departamento e cargo.
 
 Três `LEFT JOIN`: `DEPARTMENTS` (setor), `JOBS` (cargo e faixa salarial) e um
 **auto-relacionamento** com `EMPLOYEES` para trazer o nome do gestor direto.
 Além do salário, traz `MIN_SALARY`, `MAX_SALARY` e `COMMISSION_PCT` — as colunas
 que tornam possíveis as análises dos Blocos 7 e 8.
 
-### Query 2 — Funcionários por região (`sql/query_02.sql`)
+### Query 2 — Funcionários por região
 
 Quatro `LEFT JOIN` percorrendo toda a cadeia geográfica: `DEPARTMENTS`,
 `LOCATIONS`, `COUNTRIES` e `REGIONS`.
@@ -107,14 +104,13 @@ O enunciado sugeria filtros como `WHERE SALARY > 5000` ou
 O filtro adotado cumpre a exigência da cláusula `WHERE`, garante integridade da
 métrica e preserva os 107 funcionários.
 
----
 
 ## 4. A análise em Python
 
 `src/analise.py` está organizado em **8 blocos**:
 
 | Bloco | O que faz |
-|---|---|
+
 | 1 | Carga dos CSVs, tipos, nulos, duplicatas e verificação de integridade |
 | 2 | Estatística descritiva: média, mediana, mínimo, máximo, desvio, quartis |
 | 3 | Distribuição e assimetria → **histograma** |
@@ -129,12 +125,6 @@ FreeSQL (consulta → `Download > CSV`) e a **análise** acontece no Python, len
 esses CSVs. Assim os dados brutos ficam versionados no repositório e a análise
 pode ser reexecutada quantas vezes for preciso sem depender do banco.
 
-> O Oracle devolve os nomes das colunas em MAIÚSCULAS. O script normaliza para
-> minúsculas na carga, deixando o restante da análise independente do banco de
-> origem.
-
----
-
 ## 5. Principais resultados
 
 ### 5.1 A distribuição é assimétrica à direita
@@ -142,7 +132,7 @@ pode ser reexecutada quantas vezes for preciso sem depender do banco.
 ![Distribuição dos salários](img/hist_salarios.png)
 
 | Medida | Valor |
-|---|---|
+
 | Funcionários | 107 |
 | Folha total | 691.416,00 |
 | **Média** | **6.461,83** |
@@ -155,7 +145,7 @@ pode ser reexecutada quantas vezes for preciso sem depender do banco.
 | Coeficiente de variação | 60,5% |
 | Assimetria (skew) | 1,321 |
 
-A média supera a mediana em 4,2% e o *skew* de 1,32 confirma a assimetria
+A média supera a mediana em 4,2% e o *skew* (distorção) de 1,32 confirma a assimetria
 positiva. Quase metade da empresa (43 pessoas) ganha até 4.000.
 
 **Consequência prática:** para descrever o funcionário típico, a medida correta é
@@ -166,7 +156,7 @@ a **mediana**. A média descreve o custo médio da folha, não uma pessoa real.
 ![Salário por departamento](img/boxplot_departamento.png)
 
 | Departamento | n | Mediana |
-|---|---|---|
+
 | Executive | 3 | 17.000,00 |
 | Accounting | 2 | 10.154,00 |
 | Sales | 34 | 8.900,00 |
@@ -184,7 +174,7 @@ mediana geral para baixo e cria a forma assimétrica do histograma.
 ![Salário por região](img/boxplot_regiao.png)
 
 | Região | n | Mediana |
-|---|---|---|
+
 | Europe | 36 | 8.900,00 |
 | Americas | 70 | 3.300,00 |
 | *(sem região)* | 1 | 7.000,00 |
@@ -215,7 +205,7 @@ do limite de 17.600.
 Mas o resultado muda conforme o filtro aplicado na consulta SQL:
 
 | Cenário | n | IQR | Limite superior | Outliers |
-|---|---|---|---|---|
+
 | Sem filtro | 107 | 5.800,00 | 17.600,00 | **1** |
 | `WHERE salario > 3000` | 81 | 5.100,00 | 17.150,00 | 1 |
 | `WHERE salario > 5000` | 58 | **3.150,00** | **15.100,00** | **3** |
@@ -244,7 +234,7 @@ Comparando o salário real com essa faixa:
   significa pagar exatamente o ponto médio da faixa.
 
 Ou seja: as faixas são formalmente cumpridas, mas a empresa opera de forma
-sistemática no terço inferior das faixas que ela mesma definiu. Purchasing Clerks
+sistemática no terço inferior das faixas que ela mesma definiu. Purchasing
 estão em média na posição **0,09** — praticamente no piso.
 
 **E aqui a leitura dos outliers se inverte.** Steven King ganha 24.000 e é o único
@@ -279,21 +269,17 @@ sistemática.
 ### Passo 1 — Clonar e instalar as dependências
 
 ```bash
-git clone https://github.com/<seu-usuario>/projeto-final-hr.git
-cd projeto-final-hr
+git clone https://github.com/gobels2/Projeto-Avaliativo-Modulo-1-SCTEC.git
 
-python -m venv .venv
-# Windows:
-.venv\Scripts\activate
-# Linux / macOS:
-source .venv/bin/activate
+Acesse a pasta
+cd projeto-final-hr
 
 pip install -r requirements.txt
 ```
 
 ### Passo 2 — Acessar o esquema HR no FreeSQL
 
-O FreeSQL é um ambiente **Oracle Database 26ai** acessado pelo navegador. O
+O FreeSQL é um ambiente acessado pelo navegador. O
 esquema HR já vem carregado — não é preciso criar nem popular nada.
 
 1. Acesse [freesql.com](https://freesql.com/) e faça login
@@ -329,7 +315,6 @@ python src/analise.py
 Lê os dois CSVs, executa a análise exploratória em 8 blocos, gera os 5 gráficos
 em `img/` e grava o relatório completo em `data/resultados.txt`.
 
----
 
 ## 7. Estrutura do repositório
 
@@ -349,7 +334,6 @@ projeto-final-hr/
 └── README.md
 ```
 
----
 
 ## 8. Sugestões de melhoria para futuras versões
 
@@ -369,9 +353,7 @@ projeto-final-hr/
 6. **Dashboard interativo** (Power BI ou Streamlit) para o time de RH filtrar por
    cargo, região e faixa sem precisar rodar o script.
 
----
 
 ## 9. Tecnologias utilizadas
 
-Oracle SQL (FreeSQL — Oracle Database 26ai) · Python 3.12 · pandas · NumPy ·
-Matplotlib · Git e GitHub
+FreeSQL · Python 3.12 · pandas · NumPy · Matplotlib · Git e GitHub
