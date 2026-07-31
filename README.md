@@ -110,7 +110,7 @@ métrica e preserva os 107 funcionários.
 `src/analise.py` está organizado em **8 blocos**:
 
 | Bloco | O que faz |
-
+|---|---|
 | 1 | Carga dos CSVs, tipos, nulos, duplicatas e verificação de integridade |
 | 2 | Estatística descritiva: média, mediana, mínimo, máximo, desvio, quartis |
 | 3 | Distribuição e assimetria → **histograma** |
@@ -132,7 +132,7 @@ pode ser reexecutada quantas vezes for preciso sem depender do banco.
 ![Distribuição dos salários](img/hist_salarios.png)
 
 | Medida | Valor |
-
+|---|---|
 | Funcionários | 107 |
 | Folha total | 691.416,00 |
 | **Média** | **6.461,83** |
@@ -156,7 +156,7 @@ a **mediana**. A média descreve o custo médio da folha, não uma pessoa real.
 ![Salário por departamento](img/boxplot_departamento.png)
 
 | Departamento | n | Mediana |
-
+|---|---|---|
 | Executive | 3 | 17.000,00 |
 | Accounting | 2 | 10.154,00 |
 | Sales | 34 | 8.900,00 |
@@ -174,7 +174,7 @@ mediana geral para baixo e cria a forma assimétrica do histograma.
 ![Salário por região](img/boxplot_regiao.png)
 
 | Região | n | Mediana |
-
+|---|---|---|
 | Europe | 36 | 8.900,00 |
 | Americas | 70 | 3.300,00 |
 | *(sem região)* | 1 | 7.000,00 |
@@ -205,7 +205,7 @@ do limite de 17.600.
 Mas o resultado muda conforme o filtro aplicado na consulta SQL:
 
 | Cenário | n | IQR | Limite superior | Outliers |
-
+|---|---|---|---|---|
 | Sem filtro | 107 | 5.800,00 | 17.600,00 | **1** |
 | `WHERE salario > 3000` | 81 | 5.100,00 | 17.150,00 | 1 |
 | `WHERE salario > 5000` | 58 | **3.150,00** | **15.100,00** | **3** |
