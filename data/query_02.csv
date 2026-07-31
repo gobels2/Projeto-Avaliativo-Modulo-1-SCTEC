@@ -1,0 +1,108 @@
+"ID_FUNCIONARIO","FUNCIONARIO","DEPARTAMENTO","CIDADE","ESTADO_PROVINCIA","PAIS","REGIAO","SALARIO"
+201,"Michael Martinez","Marketing","Toronto","Ontario","Canada","Americas",13000
+202,"Pat Davis","Marketing","Toronto","Ontario","Canada","Americas",6000
+100,"Steven King","Executive","Seattle","Washington","United States of America","Americas",24000
+101,"Neena Yang","Executive","Seattle","Washington","United States of America","Americas",17000
+102,"Lex Garcia","Executive","Seattle","Washington","United States of America","Americas",17000
+205,"Shelley Higgins","Accounting","Seattle","Washington","United States of America","Americas",12008
+108,"Nancy Gruenberg","Finance","Seattle","Washington","United States of America","Americas",12008
+114,"Den Li","Purchasing","Seattle","Washington","United States of America","Americas",11000
+109,"Daniel Faviet","Finance","Seattle","Washington","United States of America","Americas",9000
+103,"Alexander James","IT","Southlake","Texas","United States of America","Americas",9000
+206,"William Gietz","Accounting","Seattle","Washington","United States of America","Americas",8300
+121,"Adam Fripp","Shipping","South San Francisco","California","United States of America","Americas",8200
+110,"John Chen","Finance","Seattle","Washington","United States of America","Americas",8200
+120,"Matthew Weiss","Shipping","South San Francisco","California","United States of America","Americas",8000
+122,"Payam Kaufling","Shipping","South San Francisco","California","United States of America","Americas",7900
+112,"Jose Manuel Urman","Finance","Seattle","Washington","United States of America","Americas",7800
+111,"Ismael Sciarra","Finance","Seattle","Washington","United States of America","Americas",7700
+113,"Luis Popp","Finance","Seattle","Washington","United States of America","Americas",6900
+123,"Shanta Vollman","Shipping","South San Francisco","California","United States of America","Americas",6500
+104,"Bruce Miller","IT","Southlake","Texas","United States of America","Americas",6000
+124,"Kevin Mourgos","Shipping","South San Francisco","California","United States of America","Americas",5800
+105,"David Williams","IT","Southlake","Texas","United States of America","Americas",4800
+106,"Valli Jackson","IT","Southlake","Texas","United States of America","Americas",4800
+200,"Jennifer Whalen","Administration","Seattle","Washington","United States of America","Americas",4400
+184,"Nandita Sarchand","Shipping","South San Francisco","California","United States of America","Americas",4200
+107,"Diana Nguyen","IT","Southlake","Texas","United States of America","Americas",4200
+185,"Alexis Bull","Shipping","South San Francisco","California","United States of America","Americas",4100
+192,"Sarah Bell","Shipping","South San Francisco","California","United States of America","Americas",4000
+193,"Britney Everett","Shipping","South San Francisco","California","United States of America","Americas",3900
+188,"Kelly Chung","Shipping","South San Francisco","California","United States of America","Americas",3800
+189,"Jennifer Dilly","Shipping","South San Francisco","California","United States of America","Americas",3600
+137,"Renske Ladwig","Shipping","South San Francisco","California","United States of America","Americas",3600
+141,"Trenna Rajs","Shipping","South San Francisco","California","United States of America","Americas",3500
+186,"Julia Dellinger","Shipping","South San Francisco","California","United States of America","Americas",3400
+129,"Laura Bissot","Shipping","South San Francisco","California","United States of America","Americas",3300
+133,"Jason Mallin","Shipping","South San Francisco","California","United States of America","Americas",3300
+138,"Stephen Stiles","Shipping","South San Francisco","California","United States of America","Americas",3200
+125,"Julia Nayer","Shipping","South San Francisco","California","United States of America","Americas",3200
+194,"Samuel McLeod","Shipping","South San Francisco","California","United States of America","Americas",3200
+180,"Winston Taylor","Shipping","South San Francisco","California","United States of America","Americas",3200
+142,"Curtis Davies","Shipping","South San Francisco","California","United States of America","Americas",3100
+196,"Alana Walsh","Shipping","South San Francisco","California","United States of America","Americas",3100
+115,"Alexander Khoo","Purchasing","Seattle","Washington","United States of America","Americas",3100
+181,"Jean Fleaur","Shipping","South San Francisco","California","United States of America","Americas",3100
+197,"Kevin Feeney","Shipping","South San Francisco","California","United States of America","Americas",3000
+187,"Anthony Cabrio","Shipping","South San Francisco","California","United States of America","Americas",3000
+134,"Michael Rogers","Shipping","South San Francisco","California","United States of America","Americas",2900
+190,"Timothy Venzl","Shipping","South San Francisco","California","United States of America","Americas",2900
+116,"Shelli Baida","Purchasing","Seattle","Washington","United States of America","Americas",2900
+117,"Sigal Tobias","Purchasing","Seattle","Washington","United States of America","Americas",2800
+195,"Vance Jones","Shipping","South San Francisco","California","United States of America","Americas",2800
+130,"Mozhe Atkinson","Shipping","South San Francisco","California","United States of America","Americas",2800
+183,"Girard Geoni","Shipping","South San Francisco","California","United States of America","Americas",2800
+126,"Irene Mikkilineni","Shipping","South San Francisco","California","United States of America","Americas",2700
+139,"John Seo","Shipping","South San Francisco","California","United States of America","Americas",2700
+143,"Randall Matos","Shipping","South San Francisco","California","United States of America","Americas",2600
+118,"Guy Himuro","Purchasing","Seattle","Washington","United States of America","Americas",2600
+199,"Douglas Grant","Shipping","South San Francisco","California","United States of America","Americas",2600
+198,"Donald OConnell","Shipping","South San Francisco","California","United States of America","Americas",2600
+119,"Karen Colmenares","Purchasing","Seattle","Washington","United States of America","Americas",2500
+144,"Peter Vargas","Shipping","South San Francisco","California","United States of America","Americas",2500
+182,"Martha Sullivan","Shipping","South San Francisco","California","United States of America","Americas",2500
+131,"James Marlow","Shipping","South San Francisco","California","United States of America","Americas",2500
+191,"Randall Perkins","Shipping","South San Francisco","California","United States of America","Americas",2500
+140,"Joshua Patel","Shipping","South San Francisco","California","United States of America","Americas",2500
+135,"Ki Gee","Shipping","South San Francisco","California","United States of America","Americas",2400
+127,"James Landry","Shipping","South San Francisco","California","United States of America","Americas",2400
+128,"Steven Markle","Shipping","South San Francisco","California","United States of America","Americas",2200
+136,"Hazel Philtanker","Shipping","South San Francisco","California","United States of America","Americas",2200
+132,"TJ Olson","Shipping","South San Francisco","California","United States of America","Americas",2100
+204,"Hermann Brown","Public Relations","Munich","Bavaria","Germany","Europe",10000
+145,"John Singh","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",14000
+146,"Karen Partners","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",13500
+147,"Alberto Errazuriz","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",12000
+168,"Lisa Ozer","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",11500
+148,"Gerald Cambrault","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",11000
+174,"Ellen Abel","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",11000
+149,"Eleni Zlotkey","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",10500
+162,"Clara Vishney","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",10500
+150,"Sean Tucker","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",10000
+156,"Janette King","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",10000
+169,"Harrison Bloom","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",10000
+170,"Tayler Fox","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",9600
+163,"Danielle Greene","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",9500
+157,"Patrick Sully","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",9500
+151,"David Bernstein","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",9500
+152,"Peter Hall","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",9000
+158,"Allan McEwen","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",9000
+175,"Alyssa Hutton","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",8800
+176,"Jonathon Taylor","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",8600
+177,"Jack Livingston","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",8400
+153,"Christopher Olsen","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",8000
+159,"Lindsey Smith","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",8000
+160,"Louise Doran","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",7500
+154,"Nanette Cambrault","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",7500
+171,"William Smith","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",7400
+172,"Elizabeth Bates","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",7300
+164,"Mattea Marvins","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",7200
+161,"Sarath Sewall","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",7000
+155,"Oliver Tuvault","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",7000
+165,"David Lee","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",6800
+203,"Susan Jacobs","Human Resources","London",,"United Kingdom of Great Britain and Northern Ireland","Europe",6500
+166,"Sundar Ande","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",6400
+167,"Amit Banda","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",6200
+179,"Charles Johnson","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",6200
+173,"Sundita Kumar","Sales","Oxford","Oxford","United Kingdom of Great Britain and Northern Ireland","Europe",6100
+178,"Kimberely Grant",,,,,,7000
