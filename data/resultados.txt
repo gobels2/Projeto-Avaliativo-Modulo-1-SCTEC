@@ -1,0 +1,248 @@
+
+======================================================================
+BLOCO 1 - CARGA E VERIFICACAO DE INTEGRIDADE
+======================================================================
+query_01.csv : 107 linhas x 10 colunas
+query_02.csv : 107 linhas x 8 colunas
+
+Tipos de dados (query_01):
+   id_funcionario     int64
+   funcionario        str
+   departamento       str
+   cargo              str
+   salario            int64
+   piso_cargo         int64
+   teto_cargo         int64
+   pct_comissao       float64
+   data_admissao      datetime64[us]
+   gestor_direto      str
+
+Valores ausentes por coluna (query_01):
+   departamento       1
+   pct_comissao       72
+
+Linhas duplicadas: 0
+
+Funcionarios sem departamento : 1
+Funcionarios sem regiao       : 1
+
+Registro preservado pelo LEFT JOIN:
+   id 178 - Kimberely Grant (Sales Representative) - salario 7.000,00
+
+   Este funcionario nao tem departamento cadastrado. Como a
+   localizacao no esquema HR vem do departamento, ele tambem
+   fica sem cidade, pais e regiao. Com INNER JOIN ele teria
+   sumido das duas consultas sem qualquer aviso.
+
+======================================================================
+BLOCO 2 - ESTATISTICA DESCRITIVA
+======================================================================
+Funcionarios      : 107
+Folha total       : 691.416,00
+
+Media             : 6.461,83
+Mediana           : 6.200,00
+Minimo            : 2.100,00
+Maximo            : 24.000,00
+
+Desvio padrao     : 3.909,58
+Q1 (25%)          : 3.100,00
+Q3 (75%)          : 8.900,00
+IQR (Q3-Q1)       : 5.800,00
+Coef. de variacao : 60.5%
+Assimetria (skew) : 1.321
+
+LEITURA: a media supera a mediana em 4.2%. A distribuicao
+e assimetrica a direita - poucos salarios altos puxam a media para
+cima. Para descrever o funcionario tipico, a MEDIANA e a medida
+adequada; a media descreve o custo medio da folha, nao a pessoa.
+
+======================================================================
+BLOCO 3 - DISTRIBUICAO (HISTOGRAMA)
+======================================================================
+Grafico salvo: img/hist_salarios.png
+
+Funcionarios por faixa salarial:
+   ate 4k          43  ###########################################
+   4k-6k            9  #########
+   6k-8k           22  ######################
+   8k-10k          18  ##################
+   10k-15k         12  ############
+   acima de 15k     3  ###
+
+======================================================================
+BLOCO 4 - SALARIO POR DEPARTAMENTO
+======================================================================
+Departamento             n     mediana       media
+--------------------------------------------------
+Executive                3   17.000,00   19.333,33
+Accounting               2   10.154,00   10.154,00
+Public Relations         1   10.000,00   10.000,00
+Marketing                2    9.500,00    9.500,00
+Sales                   34    8.900,00    8.955,88
+Finance                  6    8.000,00    8.601,33
+(sem departamento)       1    7.000,00    7.000,00
+Human Resources          1    6.500,00    6.500,00
+IT                       5    4.800,00    5.760,00
+Administration           1    4.400,00    4.400,00
+Shipping                45    3.100,00    3.475,56
+Purchasing               6    2.850,00    4.150,00
+
+Grafico salvo: img/boxplot_departamento.png
+
+LEITURA: Executive tem a maior mediana (17.000,00) e Purchasing a menor (2.850,00) - uma razao de 6.0x.
+
+======================================================================
+BLOCO 5 - SALARIO E DISTRIBUICAO POR REGIAO
+======================================================================
+Regiao                   n     mediana       media
+--------------------------------------------------
+Americas                70    3.300,00    5.191,66
+Europe                  36    8.900,00    8.916,67
+(sem regiao)             1    7.000,00    7.000,00
+
+Distribuicao por pais:
+   United States of America      68
+   United Kingdom of Great Britain and Northern Ireland  35
+   Canada                         2
+   Germany                        1
+   nan                            1
+
+Distribuicao por cidade:
+   South San Francisco           45
+   Oxford                        34
+   Seattle                       18
+   Southlake                      5
+   Toronto                        2
+   Munich                         1
+   London                         1
+   nan                            1
+
+Grafico salvo: img/boxplot_regiao.png
+
+LEITURA: a empresa opera em apenas 2 regioes com pessoas alocadas,
+apesar de manter 23 escritorios cadastrados em 4 regioes. A maioria
+das localidades esta cadastrada mas vazia - um achado estrutural que
+so aparece porque a consulta parte de EMPLOYEES, e nao de LOCATIONS.
+
+======================================================================
+BLOCO 6 - OUTLIERS E O EFEITO DO FILTRO WHERE
+======================================================================
+Metodo do intervalo interquartil (IQR), base completa:
+   Q1 = 3.100,00   Q3 = 8.900,00   IQR = 5.800,00
+   Limite inferior = -5.600,00
+   Limite superior = 17.600,00
+   OUTLIERS ENCONTRADOS: 1
+      Steven King - President - 24.000,00
+
+Os valores extremos correspondem a cargos de direcao. Nao sao erros
+de digitacao nem fraude: sao a camada executiva da empresa. Remove-los
+eliminaria justamente a hierarquia que a analise quer descrever.
+
+----------------------------------------------------------------------
+O EFEITO DO FILTRO SOBRE A CONTAGEM DE OUTLIERS
+----------------------------------------------------------------------
+Cenario                     n        IQR   lim. sup.  outliers
+--------------------------------------------------------------
+Sem filtro                107   5.800,00   17.600,00         1
+WHERE salario > 3000       81   5.100,00   17.150,00         1
+WHERE salario > 5000       58   3.150,00   15.100,00         3
+
+LEITURA: a mesma empresa, com as mesmas pessoas, produz 1 ou 3
+outliers dependendo apenas do filtro aplicado na consulta SQL.
+Cortar em 5000 remove a cauda inferior, comprime o IQR em 46% e
+derruba o limite superior de 17.600 para 15.100 - fazendo os dois
+Vice-Presidentes (17.000) 'virarem' outliers. Eles nao mudaram de
+salario; mudou a regua.
+Por isso a Query 1 filtra por 'SALARY IS NOT NULL' e nao por
+'SALARY > X': a contagem de outliers so e interpretavel sobre a
+distribuicao completa.
+
+Grafico salvo: img/outliers_efeito_filtro.png
+
+======================================================================
+BLOCO 7 - CONFORMIDADE DE BANDA SALARIAL POR CARGO
+======================================================================
+Funcionarios FORA da banda do proprio cargo : 0
+Compa-ratio medio da empresa                : 0.883
+Abaixo do ponto medio da banda              : 80 de 107 (74.8%)
+
+LEITURA: nenhum salario viola a faixa definida para o cargo - as
+bandas sao formalmente respeitadas. Mas 3 em cada 4 funcionarios
+estao ABAIXO do ponto medio da propria banda, e o compa-ratio medio
+de 0,88 mostra que a empresa opera sistematicamente no terco
+inferior das faixas que ela mesma definiu.
+
+Cargo                                n   posicao   compa
+--------------------------------------------------------
+Purchasing Clerk                     5      0.09    0.70
+Administration Vice President        2      0.13    0.76
+President                            1      0.20    0.80
+Sales Manager                        5      0.22    0.81
+Shipping Clerk                      20      0.24    0.80
+Stock Clerk                         20      0.26    0.79
+Programmer                           5      0.29    0.82
+Sales Representative                30      0.39    0.93
+Marketing Representative             1      0.40    0.92
+Purchasing Manager                   1      0.43    0.96
+Administration Assistant             1      0.47    0.98
+Accounting Manager                   1      0.49    0.99
+Finance Manager                      1      0.49    0.99
+Human Resources Representative       1      0.50    1.00
+Stock Manager                        5      0.59    1.04
+Marketing Manager                    1      0.67    1.08
+Accountant                           5      0.78    1.20
+Public Accountant                    1      0.85    1.26
+Public Relations Representative      1      0.92    1.33
+
+Grafico salvo: img/bandas_salariais.png
+
+ACHADO QUE INVERTE A LEITURA DOS OUTLIERS:
+   Steven King (President) ganha 24.000,00 - o
+   maior salario da empresa e o unico outlier estatistico. Mas a
+   banda do cargo vai de 20.080,00 a 40.000,00:
+   ele esta na posicao 0.20 da propria faixa, ABAIXO
+   do ponto medio (compa-ratio 0.80).
+
+   Em contraste, Daniel Faviet (Accountant) ganha
+   9.000,00 - nem aparece como outlier - mas esta
+   exatamente no teto do cargo (posicao 1.00).
+
+   Ou seja: o 'outlier' e um artefato de comparar cargos com
+   faixas diferentes. Normalizando pela banda, quem parecia
+   extremo passa a ser modestamente remunerado para a funcao.
+
+======================================================================
+BLOCO 8 - REMUNERACAO TOTAL (SALARIO + COMISSAO)
+======================================================================
+Funcionarios com comissao : 35 de 107
+Departamentos envolvidos  : Sales
+Comissao media            : 22.3%
+
+Comparacao por departamento (mediana):
+Departamento              so salario    com comissao     dif
+------------------------------------------------------------
+Executive                  17.000,00       17.000,00     0%
+Sales                       8.900,00       10.962,50    23%
+Accounting                 10.154,00       10.154,00     0%
+Public Relations           10.000,00       10.000,00     0%
+Marketing                   9.500,00        9.500,00     0%
+(sem departamento)          7.000,00        8.050,00    15%
+Finance                     8.000,00        8.000,00     0%
+Human Resources             6.500,00        6.500,00     0%
+IT                          4.800,00        4.800,00     0%
+Administration              4.400,00        4.400,00     0%
+Shipping                    3.100,00        3.100,00     0%
+Purchasing                  2.850,00        2.850,00     0%
+
+LEITURA: a comissao existe apenas em Sales. Analisar somente o
+salario-base subestima a remuneracao dessa area e distorce qualquer
+comparacao entre departamentos. Este bloco usa a coluna
+COMMISSION_PCT, que as duas consultas trouxeram justamente para
+tornar a comparacao honesta.
+
+======================================================================
+FIM DA ANALISE
+======================================================================
+5 graficos gravados em img/
+Resumo completo em data/resultados.txt
