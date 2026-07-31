@@ -9,13 +9,9 @@ Projeto de análise de dados de Recursos Humanos: extração via SQL no
 CSV, e Análise Exploratória de Dados (AED) em Python com estatística descritiva
 e visualizações.
 
-### 🎥 Vídeo de apresentação
 
-<!-- COLE O LINK DO VÍDEO ABAIXO, substituindo a linha em itálico -->
+### Adicionar Link do video Vídeo de apresentação
 
-_Link do vídeo será adicionado aqui após a gravação._
-
----
 
 ## 1. Objetivo do trabalho
 
