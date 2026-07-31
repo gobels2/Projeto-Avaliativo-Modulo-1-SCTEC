@@ -5,7 +5,7 @@
 **Módulo:** 1 — Projeto Avaliativo (Semana 13)
 
 Projeto de análise de dados de Recursos Humanos: extração via SQL no
-**FreeSQL** (Oracle Database 26ai, esquema HR), exportação dos resultados para
+**FreeSQL** (Esquema HR), exportação dos resultados para
 CSV, e Análise Exploratória de Dados (AED) em Python com estatística descritiva
 e visualizações.
 
