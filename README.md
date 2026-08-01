@@ -336,17 +336,11 @@ projeto-final-hr/
 1. **Usar `JOB_HISTORY` para analisar progressão de carreira** — hoje a tabela é
    carregada mas não analisada. Ela permitiria medir tempo médio até promoção e
    se a mudança de cargo vem acompanhada de reposicionamento na banda.
-2. **Cruzar tempo de casa (`HIRE_DATE`) com posição na banda** — a hipótese natural
-   é que quem está há mais tempo ocupe posições mais altas. Se isso não se
-   confirmar, há um problema de reajuste que a análise atual não captura.
-3. **Controlar a comparação regional por cargo** — como mostrado em 5.3, comparar
-   regiões sem controlar composição de cargos leva a conclusão errada. Uma
-   comparação pareada (mesmo cargo, regiões diferentes) resolveria.
-4. **Comparar as bandas com o mercado externo** — os dados dizem se a empresa
+2. **Comparar as bandas com o mercado externo** — os dados dizem se a empresa
    respeita as próprias faixas, não se essas faixas são competitivas.
-5. **Corrigir o cadastro do funcionário 178** — a análise expôs a falha; o passo
+3. **Corrigir o cadastro do funcionário 178** — a análise expôs a falha; o passo
    seguinte é uma rotina de validação que impeça novos cadastros sem departamento.
-6. **Dashboard interativo** (Power BI ou Streamlit) para o time de RH filtrar por
+4. **Dashboard interativo** (Power BI ou Streamlit) para o time de RH filtrar por
    cargo, região e faixa sem precisar rodar o script.
 
 
