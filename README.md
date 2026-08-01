@@ -10,7 +10,8 @@ CSV, e Análise Exploratória de Dados (AED) em Python com estatística descriti
 e visualizações.
 
 
-### Adicionar Link do video Vídeo de apresentação
+Link do video Vídeo de apresentação
+https://www.loom.com/share/2b42fb20670741dda49d0a7eaad55296
 
 
 ## 1. Objetivo do trabalho
